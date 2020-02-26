@@ -19,7 +19,7 @@ resource "aws_iam_role" "admin_role" {
   description        = "IT SRE Delegated Admin role"
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 
-  tags {
+  tags = {
     Name      = "itsre-admin"
     Purpose   = "IT SRE delegated role"
     Terraform = "true"
