@@ -15,9 +15,10 @@ data "aws_iam_policy_document" "assume_role_policy" {
 }
 
 resource "aws_iam_role" "admin_role" {
-  name               = "itsre-admin"
-  description        = "IT SRE Delegated Admin role"
-  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
+  name                 = "itsre-admin"
+  description          = "IT SRE Delegated Admin role"
+  max_session_duration = var.max_session_duration
+  assume_role_policy   = data.aws_iam_policy_document.assume_role_policy.json
 
   tags = {
     Name      = "itsre-admin"
@@ -27,9 +28,10 @@ resource "aws_iam_role" "admin_role" {
 }
 
 resource "aws_iam_role" "readonly_role" {
-  name               = "itsre-readonly"
-  description        = "IT SRE Delegated  Readonly role"
-  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
+  name                 = "itsre-readonly"
+  description          = "IT SRE Delegated  Readonly role"
+  max_session_duration = var.max_session_duration
+  assume_role_policy   = data.aws_iam_policy_document.assume_role_policy.json
 
   tags = {
     Name      = "itsre-admin"
@@ -39,9 +41,10 @@ resource "aws_iam_role" "readonly_role" {
 }
 
 resource "aws_iam_role" "poweruser_role" {
-  name               = "itsre-poweruser"
-  description        = "IT SRE Delegated PowerUser role"
-  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
+  name                 = "itsre-poweruser"
+  description          = "IT SRE Delegated PowerUser role"
+  max_session_duration = var.max_session_duration
+  assume_role_policy   = data.aws_iam_policy_document.assume_role_policy.json
 
   tags = {
     Name      = "itsre-admin"
